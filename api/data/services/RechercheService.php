@@ -13,13 +13,12 @@ class RechercheService
 
      // SELECT * FROM `cotisation` WHERE `date` BETWEEN "2022-09-17" AND "2023-02-13"; 
      // SELECT * FROM `cotisation` WHERE `date` BETWEEN "2022-09-17" AND "2023-02-13" AND `numCompte` = "xxx-xxx-xxxx"; 
-     public function findCotisationSimple($date1, $date2): ?array
+     public function findCotisationSimple($date1, $date2, $idUser): ?array
      {
 
           $data = [];
-          $query = "SELECT * FROM `cotisation` WHERE `date` BETWEEN '$date1' AND '$date2'";
+          $query = "SELECT * FROM `cotisation` WHERE `idUser`= '$idUser' AND `date` BETWEEN '$date1' AND '$date2'";
           $result = mysqli_query($this->connection, $query);
-
 
           if (mysqli_num_rows($result) == 0)
                return [];
@@ -30,11 +29,11 @@ class RechercheService
           return $data;
      }
 
-     public function findCotisation($date1, $date2, $numCompte): ?array
+     public function findCotisation($date1, $date2, $numCompte, $idUser): ?array
      {
 
           $data = [];
-          $query = "SELECT * FROM `cotisation` WHERE `mobile` = '$numCompte' AND `date` BETWEEN '$date1' AND '$date2'";
+          $query = "SELECT * FROM `cotisation` WHERE `idUser`= '$idUser' AND `mobile` = '$numCompte' AND `date` BETWEEN '$date1' AND '$date2'";
           $result = mysqli_query($this->connection, $query);
 
 

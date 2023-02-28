@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $rechercheService = new RechercheService($database);
 
      $data = json_decode(file_get_contents("php://input"));
-     echo json_encode(["data" => $rechercheService->findCotisation($data->date1, $data->date2, $data->numCompte)]);
+     echo json_encode(["data" => $rechercheService->findCotisation($data->date1, $data->date2, $data->numCompte, $data->idUser)]);
 } else {
 
      http_response_code(405);

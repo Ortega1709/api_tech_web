@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $message = "Cher(e) client(e) vous avez bien effectué une cotisation de $montant.";
 
      $whatsAppService->envoi($mobile, $message);
+     http_response_code(200);
+     
 } else {
 
      http_response_code(405);
