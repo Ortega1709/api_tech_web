@@ -2,10 +2,10 @@
 
 class DatabaseConnect {
 
-     private $server = "109.106.240.4";
-     private $user = "u771965123_wazi";
-     private $password = "Mama2000";
-     private $db = "u771965123_wazi";
+     private $server = "**************";
+     private $user = "*************";
+     private $password = "********";
+     private $db = "********";
 
      public function __construct() {
      }
